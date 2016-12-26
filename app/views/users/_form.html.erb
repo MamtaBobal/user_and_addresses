@@ -1,0 +1,47 @@
+<%= form_for(user) do |f| %>
+    <% if user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    
+    <% @addresses.each do |address| %>
+        <%= f.fields_for :addresses, address do |add| %>
+
+            <div class="form-group">
+              <%= add.check_box :active, :class => "checkbox" %>
+              <%= add.label :desc%>
+              <%= add.text_field :desc%>
+            </div>
+            </div>
+        <%end%>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+<% end %>
+
+<script>
+    jQuery(function () {
+        jQuery("#f").click(function () {
+            if (jQuery(this).is(":checked")) {
+                alert("mamta");
+            } else {
+                alert("ekta");
+            }
+        });
+    });
+</script>
