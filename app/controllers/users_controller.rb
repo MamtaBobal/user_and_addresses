@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     # @users = User.includes(:addresses).where("addresses.active"=>true)
-    @users = User.all
+    @users = User.includes(:addresses).where("addresses.active" => true)
   end
 
   # GET /users/1

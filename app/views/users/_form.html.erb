@@ -35,13 +35,9 @@
 <% end %>
 
 <script>
-    jQuery(function () {
-        jQuery("#f").click(function () {
-            if (jQuery(this).is(":checked")) {
-                alert("mamta");
-            } else {
-                alert("ekta");
-            }
-        });
-    });
+    $(document).ready(function(){
+      $(".checkbox").click(function(){
+        $(".checkbox").not(this).attr("checked", false);
+      });
+    }); 
 </script>
